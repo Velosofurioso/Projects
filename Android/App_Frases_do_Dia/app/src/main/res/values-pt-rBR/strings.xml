@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Frases do Dia</string>
+    <string name="btn_frase">Nova Frase</string>
+    <string name="content_D_img_frase">Imagem de Frase do Dia</string>
+    <string name="msg_frase">Pressione o botão para gerar uma nova Frase</string>
+</resources>

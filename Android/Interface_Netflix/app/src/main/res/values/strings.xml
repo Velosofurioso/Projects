@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Interface Netflix</string>
+    <string name="menu_mensagem">Mensagem</string>
+    <string name="menu_volume">Volume</string>
+    <string name="menu_avaliacao">Avaliação</string>
+    <string name="menu_episodio">Episodio</string>
+    <string name="player_video">Player do Video</string>
+    <string name="menu_recomecar">Menu Recomeçar Videos</string>
+    <string name="menu_iniciar">Menu Iniciar Video</string>
+    <string name="menu_pause">Menu Pause</string>
+    <string name="time_start">01:30</string>
+    <string name="time_fim">42:30</string>
+    <string name="nome_serie">House Of Cards</string>
+    <string name="season_serie">S1-EP2</string>
+</resources>

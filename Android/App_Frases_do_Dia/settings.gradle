@@ -1,0 +1,2 @@
+rootProject.name='App_Frases_do_Dia'
+include ':app'

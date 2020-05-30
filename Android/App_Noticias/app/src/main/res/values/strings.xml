@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">App De Noticias</string>
+    <string name="lblMain_MSG">Aprenda Sobre edição de Imagens</string>
+    <string name="lblData_txt">18/02/2000</string>
+    <string name="lblAutor">Lucas Veloso</string>
+    <string name="btnAnterior">Anterior</string>
+    <string name="btnProximo">Proximo</string>
+
+    <string name="lblConteudo_txt">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Fusce feugiat sit amet lorem et gravida.
+        Sed tempor augue non mattis imperdiet. In convallis lorem turpis,
+        at dignissim enim vehicula et. Pellentesque ornare eu sem at pellentesque.
+        In dignissim, turpis non consequat fringilla, libero lacus imperdiet lorem,
+        ac suscipit metus odio non nisi. Nullam scelerisque dolor quis dui bibendum,
+        sit amet vestibulum erat molestie.In dignissim, turpis non consequat fringilla,
+        libero lacus imperdiet lorem, ac suscipit metus odio non nisi.
+        Nullam scelerisque dolor quis dui bibendum, sit amet vestibulum erat molestie.
+
+    </string>
+</resources>
