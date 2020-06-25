@@ -45,13 +45,21 @@ public class UserResource {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> findAll(@RequestBody UserDTO user){
+	public ResponseEntity<Void> insert(@RequestBody UserDTO user){
 		
 		User newUser = uService.fromDTO(user);
 		newUser = uService.insert(newUser); 	
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newUser.getId()).toUri();				
 		return ResponseEntity.created(uri).build();
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable String id){
+		
+		uService.delete(id);
+		
+		return ResponseEntity.noContent().build();
 	}
 	
 }
