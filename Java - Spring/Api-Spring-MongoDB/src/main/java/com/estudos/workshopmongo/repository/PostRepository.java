@@ -12,7 +12,7 @@ import com.estudos.workshopmongo.domain.Post;
 @Repository
 public interface PostRepository extends MongoRepository<Post, String> {
 
-	List<Post> findByTitleContainingIgnoreCase(String text);
+	List<Post> findByBodyContainingIgnoreCase(String text);
 	
 	@Query("{ 'title': { $regex : ?0, $options: 'i' } } ")
 	List<Post> findByTitleRegex(String text);

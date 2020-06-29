@@ -28,6 +28,10 @@ public class PostService {
 		return post.get();
 	}
 	
+	public List<Post> findByBody(String text){
+		return repositorio.findByBodyContainingIgnoreCase(text);
+	}
+	
 	public List<Post> findByTitle(String text){
 		return repositorio.findByTitleRegex(text);
 	}

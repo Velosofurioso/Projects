@@ -41,6 +41,16 @@ public class PostResource {
 		
 	}
 	
+	@RequestMapping(value = "/bodysearch", method = RequestMethod.GET)
+	public ResponseEntity<List<Post>> findByBody(@RequestParam(value="text", defaultValue = "") String text){
+		text = URL.decodeParam(text);
+		
+		List<Post> posts = postService.findByBody(text);
+		
+		return ResponseEntity.ok().body(posts);
+		
+	}
+	
 	@RequestMapping(value = "/fullsearch", method = RequestMethod.GET)
 	public ResponseEntity<List<Post>> fullsearch(
 			@RequestParam(value="text", defaultValue = "") String text, 
