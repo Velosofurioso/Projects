@@ -1,8 +1,9 @@
 package com.estudos.workshopmongo.repository;
 
 import java.util.Date;
-import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -12,10 +13,10 @@ import com.estudos.workshopmongo.domain.Post;
 @Repository
 public interface PostRepository extends MongoRepository<Post, String> {
 
-	List<Post> findByBodyContainingIgnoreCase(String text);
+	Page<Post> findByBodyContainingIgnoreCase(String text, Pageable pageable);
 	
 	@Query("{ 'title': { $regex : ?0, $options: 'i' } } ")
-	List<Post> findByTitleRegex(String text);
+	Page<Post> findByTitleRegexPage(String text, Pageable pageable);
 	
 	@Query("{ $and: [ {date: {$gte: ?1} }, {date: {$lte: ?2} }, "
 			+ "{ $or: [ { 'title': { $regex : ?0, $options: 'i' } }, "
@@ -24,5 +25,5 @@ public interface PostRepository extends MongoRepository<Post, String> {
 			+ " ] } "
 	+ " ] } ")
 	
-	List<Post> fullSearch(String text, Date minDate, Date maxDate);
+	Page<Post> fullSearch(String text, Date minDate, Date maxDate, Pageable pageable);
 }

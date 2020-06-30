@@ -1,10 +1,11 @@
 package com.estudos.workshopmongo.services;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.estudos.workshopmongo.domain.Post;
@@ -28,18 +29,18 @@ public class PostService {
 		return post.get();
 	}
 	
-	public List<Post> findByBody(String text){
-		return repositorio.findByBodyContainingIgnoreCase(text);
+	public Page<Post> findByBody(String text, Pageable pageable){
+		return repositorio.findByBodyContainingIgnoreCase(text, pageable);
 	}
 	
-	public List<Post> findByTitle(String text){
-		return repositorio.findByTitleRegex(text);
+	public Page<Post> findByTitle(String text, Pageable pageable){
+		return repositorio.findByTitleRegexPage(text, pageable);
 	}
 	
-	public List<Post> fullSearch(String text, Date minDate, Date maxDate){
+	public Page<Post> fullSearch(String text, Date minDate, Date maxDate, Pageable pageable){
 		maxDate = new Date(maxDate.getTime() + 24 *60 *60 *1000);
 		
-		return repositorio.fullSearch(text, minDate, maxDate);
+		return repositorio.fullSearch(text, minDate, maxDate, pageable);
 	}
 	
 }

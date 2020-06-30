@@ -1,9 +1,10 @@
 package com.estudos.workshopmongo.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.estudos.workshopmongo.domain.User;
@@ -17,8 +18,8 @@ public class UserService {
 	@Autowired
 	private UserRepository repositorio;
 
-	public List<User> findAll() {
-		return repositorio.findAll();
+	public Page<User> findAll(Pageable pageable) {
+		return repositorio.findAll(pageable);
 	}
 
 	public User findById(String id) {
