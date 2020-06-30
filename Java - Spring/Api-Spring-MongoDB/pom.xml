@@ -12,7 +12,7 @@
 	<artifactId>Api-Spring-MongoDB</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Api-Spring-MongoDB</name>
-	<description>Workshop de APi Rest com Spring Boot e MongoDB</description>
+	<description> APi Rest com Spring Boot e MongoDB</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -39,6 +39,18 @@
 		<dependency>
     		<groupId>org.springframework.boot</groupId>
     		<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		    <version>2.9.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>2.9.2</version>
 		</dependency>
 		
 	</dependencies>

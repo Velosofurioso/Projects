@@ -18,6 +18,10 @@ import com.estudos.workshopmongo.domain.User;
 import com.estudos.workshopmongo.dto.UserDTO;
 import com.estudos.workshopmongo.services.UserService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping(value="/users")
 public class UserResource {
@@ -25,7 +29,10 @@ public class UserResource {
 	@Autowired
 	private UserService uService;
 	
-	@RequestMapping(method = RequestMethod.GET)
+	
+	@ApiOperation(value = "Returns a list of users ")
+	@ApiResponses(value = @ApiResponse(code = 200, message =  "Returns the list of users"))
+	@RequestMapping(method = RequestMethod.GET, produces="application/json")
 	public ResponseEntity<List<UserDTO>> findAll(){
 		
 		List<User> userList = uService.findAll();
@@ -37,7 +44,13 @@ public class UserResource {
 		return ResponseEntity.ok().body(userListDTO);
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	
+	@ApiResponses(value = {
+		    @ApiResponse(code = 200, message = "Returns a user"),
+		    @ApiResponse(code = 404, message = "User Not Found"),
+	})
+	@ApiOperation(value = "Return a user from id")
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces="application/json")
 	public ResponseEntity<UserDTO> findById(@PathVariable String id){
 		
 		User user = uService.findById(id);
@@ -45,7 +58,21 @@ public class UserResource {
 		return ResponseEntity.ok().body(new UserDTO(user));
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	
+	@ApiOperation(value = "Return all user posts from id")
+	@ApiResponses(value = @ApiResponse(code = 200, message = "Returns the list of user posts"))
+	@RequestMapping(value = "/{id}/posts", method = RequestMethod.GET, produces="application/json")
+	public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+		
+		User user = uService.findById(id);
+		
+		return ResponseEntity.ok().body(user.getPosts());
+	}
+	
+
+	@ApiOperation(value = "Create a new User")
+	@ApiResponses(value = @ApiResponse(code = 201, message = "Create a user from Json"))
+	@RequestMapping(method = RequestMethod.POST, consumes="application/json")
 	public ResponseEntity<Void> insert(@RequestBody UserDTO user){
 		
 		User newUser = uService.fromDTO(user);
@@ -54,16 +81,21 @@ public class UserResource {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newUser.getId()).toUri();				
 		return ResponseEntity.created(uri).build();
 	}
+
 	
+	@ApiOperation(value = "Deletes a user by id")
+	@ApiResponses(value = @ApiResponse(code = 204, message = "Deleted user"))
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable String id){
 		
 		uService.delete(id);
-		
 		return ResponseEntity.noContent().build();
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	
+	@ApiOperation(value = "Updates a user's data")
+	@ApiResponses(value = @ApiResponse(code = 204, message = "Updates a user by Id"))
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<Void> update(@PathVariable String id, @RequestBody UserDTO UpdtUser){
 		
 		User oldUser = uService.fromDTO(UpdtUser);
@@ -71,14 +103,6 @@ public class UserResource {
 		oldUser = uService.update(oldUser);
 		
 		return ResponseEntity.noContent().build();
-	}
-	
-	@RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
-	public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
-		
-		User user = uService.findById(id);
-		
-		return ResponseEntity.ok().body(user.getPosts());
 	}
 	
 }

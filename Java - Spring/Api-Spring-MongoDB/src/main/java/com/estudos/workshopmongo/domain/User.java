@@ -8,14 +8,23 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value = "User", description = "User Table Entity")
 @Document(collection = "user")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@ApiModelProperty(value = "User ID")
 	@Id
 	private String id;
+	
+	@ApiModelProperty(value = "User name")
 	private String name;
+	
+	@ApiModelProperty(value = "Post email")
 	private String email;
 	
 	@DBRef(lazy = true)

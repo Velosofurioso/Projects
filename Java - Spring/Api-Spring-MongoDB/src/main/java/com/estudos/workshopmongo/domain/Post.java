@@ -11,17 +11,32 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.estudos.workshopmongo.dto.AuthorDTO;
 import com.estudos.workshopmongo.dto.CommentDTO;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value = "Post", description = "Post Table Entity")
 @Document(collection = "post")
 public class Post implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	@ApiModelProperty(value = "Post ID")
 	@Id
 	private String id;
+	
+	@ApiModelProperty(value = "Post Date")
 	private Date date;
+	
+	@ApiModelProperty(value = "Post Title")
 	private String title;
+	
+	@ApiModelProperty(value = "Post body")
 	private String body;
+	
+	@ApiModelProperty(value = "Post Author")
 	private AuthorDTO author;
+	
+	@ApiModelProperty(value = "Post comments")
 	private List<CommentDTO> comments = new ArrayList<>();
 	
 	public Post() {

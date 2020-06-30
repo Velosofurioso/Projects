@@ -22,7 +22,7 @@ public class PostService {
 		Optional<Post> post =  repositorio.findById(id);
 		
 		if (!post.isPresent()) {
-			throw new ObjectNotFoundException("Objeto não encontrado");
+			throw new ObjectNotFoundException("Post not found");
 		}
 		
 		return post.get();

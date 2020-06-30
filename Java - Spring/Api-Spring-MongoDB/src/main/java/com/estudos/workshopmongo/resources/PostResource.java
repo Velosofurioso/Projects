@@ -15,6 +15,10 @@ import com.estudos.workshopmongo.domain.Post;
 import com.estudos.workshopmongo.resources.util.URL;
 import com.estudos.workshopmongo.services.PostService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping(value="/post")
 public class PostResource {
@@ -22,7 +26,13 @@ public class PostResource {
 	@Autowired
 	private PostService postService;
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	
+	@ApiResponses(value = {
+		    @ApiResponse(code = 200, message = "Returns a Post"),
+		    @ApiResponse(code = 404, message = "Post Not Found"),
+	})
+	@ApiOperation(value = "Return a post from the parameter")
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces="application/json")
 	public ResponseEntity<Post> findById(@PathVariable String id){
 		
 		Post post = postService.findById(id);
@@ -31,27 +41,34 @@ public class PostResource {
 		
 	}
 	
-	@RequestMapping(value = "/titlesearch", method = RequestMethod.GET)
+	
+	@ApiOperation(value = "Returns a post list using the title as a parameter")
+	@ApiResponses(value = @ApiResponse(code = 200, message =  "Returns a post list"))
+	@RequestMapping(value = "/titlesearch", method = RequestMethod.GET, produces="application/json")
 	public ResponseEntity<List<Post>> findByTitle(@RequestParam(value="text", defaultValue = "") String text){
-		text = URL.decodeParam(text);
 		
+		text = URL.decodeParam(text);
 		List<Post> posts = postService.findByTitle(text);
 		
 		return ResponseEntity.ok().body(posts);
-		
 	}
 	
-	@RequestMapping(value = "/bodysearch", method = RequestMethod.GET)
+	
+	@ApiOperation(value = "Returns a post list using the post text as a parameter")
+	@ApiResponses(value = @ApiResponse(code = 200, message = "Returns a post list"))
+	@RequestMapping(value = "/bodysearch", method = RequestMethod.GET, produces="application/json")
 	public ResponseEntity<List<Post>> findByBody(@RequestParam(value="text", defaultValue = "") String text){
-		text = URL.decodeParam(text);
 		
+		text = URL.decodeParam(text);
 		List<Post> posts = postService.findByBody(text);
 		
-		return ResponseEntity.ok().body(posts);
-		
+		return ResponseEntity.ok().body(posts);	
 	}
 	
-	@RequestMapping(value = "/fullsearch", method = RequestMethod.GET)
+	
+	@ApiOperation(value = "Returns a post list using the post text and dates as a parameter")
+	@ApiResponses(value = @ApiResponse(code = 200, message = "Returns a post list"))
+	@RequestMapping(value = "/fullsearch", method = RequestMethod.GET, produces="application/json")
 	public ResponseEntity<List<Post>> fullsearch(
 			@RequestParam(value="text", defaultValue = "") String text, 
 			@RequestParam(value="minDate", defaultValue = "") String minDate, 
@@ -63,8 +80,6 @@ public class PostResource {
 		Date max = URL.convertDate(maxDate, new Date());
 		
 		List<Post> posts = postService.fullSearch(text, min, max);
-		
 		return ResponseEntity.ok().body(posts);
-		
 	}
 }
