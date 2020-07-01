@@ -1,5 +1,6 @@
 package com.estudos.workshopmongo.resources;
 
+import java.net.URI;
 import java.util.Date;
 import java.util.List;
 
@@ -10,12 +11,15 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.estudos.workshopmongo.domain.Post;
+import com.estudos.workshopmongo.dto.PostDTO;
 import com.estudos.workshopmongo.resources.util.URL;
 import com.estudos.workshopmongo.services.PostService;
 
@@ -118,5 +122,39 @@ public class PostResource {
 		
 		
 		return ResponseEntity.ok().headers(header).body(posts.getContent());
+	}
+	
+	@ApiOperation(value = "Create a new Post")
+	@ApiResponses(value = @ApiResponse(code = 201, message = "Create a post from Json"))
+	@RequestMapping(method = RequestMethod.POST, consumes="application/json")
+	public ResponseEntity<Void> insert(@RequestBody PostDTO post){
+		
+		Post newPost = postService.fromDTO(post);
+		newPost = postService.insert(newPost); 	
+		
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newPost.getId()).toUri();				
+		return ResponseEntity.created(uri).build();
+	}
+	
+	
+	@ApiOperation(value = "Deletes a post by id")
+	@ApiResponses(value = @ApiResponse(code = 204, message = "Deleted user"))
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable String id){
+		
+		postService.delete(id);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@ApiOperation(value = "Updates a user's data")
+	@ApiResponses(value = @ApiResponse(code = 204, message = "Updates a user by Id"))
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes="application/json")
+	public ResponseEntity<Void> update(@PathVariable String id, @RequestBody PostDTO UpdtPost){
+		
+		Post oldPost = postService.fromDTO(UpdtPost);
+		oldPost.setId(id);
+		oldPost = postService.update(oldPost);
+		
+		return ResponseEntity.noContent().build();
 	}
 }

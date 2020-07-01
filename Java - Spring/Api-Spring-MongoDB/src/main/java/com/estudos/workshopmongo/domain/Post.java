@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -28,9 +31,13 @@ public class Post implements Serializable{
 	private Date date;
 	
 	@ApiModelProperty(value = "Post Title")
+	@NotNull(message = "the title cannot be null")
+	@NotEmpty(message = "the title cannot be empty")
 	private String title;
 	
 	@ApiModelProperty(value = "Post body")
+	@NotNull(message = "the body cannot be null")
+	@NotEmpty(message = "the body cannot be empty")
 	private String body;
 	
 	@ApiModelProperty(value = "Post Author")
@@ -49,6 +56,16 @@ public class Post implements Serializable{
 		this.title = title;
 		this.body = body;
 		this.author = author;
+	}
+	
+	public Post(String id, Date date, String title, String body, AuthorDTO author, List<CommentDTO> comments) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.title = title;
+		this.body = body;
+		this.author = author;
+		this.comments = comments;
 	}
 
 	public String getId() {

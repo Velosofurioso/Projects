@@ -48,10 +48,20 @@ public class UserService {
 		return repositorio.save(oldUser);
 	}
 	
+	public String findNameById(String id) {
+		User user = repositorio.findNameById(id);
+		
+		if(user.getName() == null || user.getName().isEmpty())
+			throw new ObjectNotFoundException("User not found");
+		
+		return user.getName();
+	}
+	
 	private void updateData(User oldUser, User user) {
 		oldUser.setName(user.getName());
 		oldUser.setEmail(user.getEmail());
 	}
+	
 
 	public User fromDTO(UserDTO userDTO) {
 		return new User(userDTO.getId(), userDTO.getName(), userDTO.getEmail());

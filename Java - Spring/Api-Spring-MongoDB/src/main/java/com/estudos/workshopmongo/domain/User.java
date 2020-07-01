@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -21,10 +24,14 @@ public class User implements Serializable {
 	@Id
 	private String id;
 	
-	@ApiModelProperty(value = "User name")
+	@ApiModelProperty(value = "User name", required = true, allowEmptyValue = false)
+	@NotNull(message = "the user name cannot be null")
+	@NotEmpty(message = "the user name cannot be empty")
 	private String name;
 	
-	@ApiModelProperty(value = "Post email")
+	@ApiModelProperty(value = "Post email", required = true, allowEmptyValue = false)
+	@NotNull(message = "the user email cannot be null")
+	@NotEmpty(message = "the user email cannot be empty")
 	private String email;
 	
 	@DBRef(lazy = true)

@@ -8,5 +8,6 @@ import com.estudos.workshopmongo.domain.User;
 @Repository
 public interface UserRepository extends MongoRepository<User, String>{
 
+	public User findNameById(String id);
 	
 }
