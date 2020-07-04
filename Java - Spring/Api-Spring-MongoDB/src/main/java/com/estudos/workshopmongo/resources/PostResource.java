@@ -77,7 +77,7 @@ public class PostResource {
 	@RequestMapping(value = "/bodysearch", method = RequestMethod.GET, produces="application/json")
 	public ResponseEntity<List<Post>> findByBody(@RequestParam(value="text", defaultValue = "") String text,
 			@RequestParam(value = "page", required = false, defaultValue = "0") int page,
-            @RequestParam(value = "size", required = false, defaultValue = "1") int size				
+            @RequestParam(value = "size", required = false, defaultValue = "10") int size				
 	){
 		PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.ASC, "post");
 		
@@ -102,7 +102,7 @@ public class PostResource {
 			@RequestParam(value="minDate", defaultValue = "") String minDate, 
 			@RequestParam(value="maxDate", defaultValue = "") String maxDate,
 			@RequestParam(value = "page", required = false, defaultValue = "0") int page,
-            @RequestParam(value = "size", required = false, defaultValue = "1") int size
+            @RequestParam(value = "size", required = false, defaultValue = "10") int size
 	) {
 		
 		PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.ASC, "post");
