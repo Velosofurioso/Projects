@@ -82,6 +82,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>    
+					<mainClass>com.estudos.workshopmongo.ApiSpringMongoDbApplication</mainClass>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
