@@ -68,35 +68,36 @@ _https://api-rest-spring-mongodb.herokuapp.com/_
   
   **Get**
   
-	  * **Success Response:**
+	  **Success Response:**
 	  
 		_Expected response to the success of the Get request_
 
 			* **Code:** 200 <br />
 			  **Content:** `{ name : "user", email: "user@gmail" }`
 	 
-	  * **Error Response:**
+	  **Error Response:**
 
 		_Expected response to Get request failure._
 
-		* **Code:** 404 NOT FOUND <br />
+		**Code:** 404 NOT FOUND <br />
 		  **Content:** `{ error : "Log in" }`
 	
 	
   **Post**
   
-  		_Expected response to the success of the Post request_
+  		Expected response to the success of the Post request
 
-			* **Code:** 201 <br />
+			 **Code:** 201 <br />
 	 
-	  * **Error Response:**
+	   **Error Response:**
 
-		_Expected response to Post request failure._
+		Expected response to Post request failure.
 
-		* **Code:** 400 BAD REQUEST <br />
+		 **Code:** 400 BAD REQUEST <br />
 	
 
-* **Notes:**
+**Notes:**
 
-  _If you have any questions about any project endpoint, access the API documentation at: _
-  _https://api-rest-spring-mongodb.herokuapp.com/swagger-ui.html#/_
+  If you have any questions about any project endpoint, access the API documentation at:
+  
+  https://api-rest-spring-mongodb.herokuapp.com/swagger-ui.html#/
