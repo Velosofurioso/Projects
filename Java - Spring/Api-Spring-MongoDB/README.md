@@ -72,14 +72,14 @@ _https://api-rest-spring-mongodb.herokuapp.com/_
 	  
 		Expected response to the success of the Get request
 
-			Code: 200 <br />
-			Content: { name : "user", email: "user@gmail" }
+		  Code: 200 
+		  Content: { name : "user", email: "user@gmail" }
 	 
 	  Error Response:
 
 		Expected response to Get request failure.
 
-		Code: 404 NOT FOUND <br />
+		Code: 404 NOT FOUND 
 		Content: { error : "Log in" }
 	
 	
@@ -89,13 +89,13 @@ _https://api-rest-spring-mongodb.herokuapp.com/_
   
 		   Expected response to the success of the Post request
 
-				Code: 201 <br />
+			Code: 201 
 	 
 	   Error Response:
 
 		Expected response to Post request failure.
 
-		  Code: 400 BAD REQUEST <br />
+		  Code: 400 BAD REQUEST 
 	
 
 **Notes:**
