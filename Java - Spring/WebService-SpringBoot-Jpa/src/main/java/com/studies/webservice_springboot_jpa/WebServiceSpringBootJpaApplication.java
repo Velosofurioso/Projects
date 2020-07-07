@@ -1,4 +1,4 @@
-package com.studies.webservicespringbootjpa;
+package com.studies.webservice_springboot_jpa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
