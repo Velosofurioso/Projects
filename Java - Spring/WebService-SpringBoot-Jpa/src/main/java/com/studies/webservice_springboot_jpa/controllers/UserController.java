@@ -13,7 +13,7 @@ import com.studies.webservice_springboot_jpa.entities.User;
 import com.studies.webservice_springboot_jpa.services.UserService;
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/users")
 public class UserController {
 	
 	@Autowired
@@ -28,9 +28,9 @@ public class UserController {
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<User> findaAll(@PathVariable(required = true) String id){
+	public ResponseEntity<User> findaAll(@PathVariable(required = true) Long id){
 		
-		User users = userService.findById(Long.parseLong(id));
+		User users = userService.findById(id);
 		
 		return ResponseEntity.ok().body(users);
 	}

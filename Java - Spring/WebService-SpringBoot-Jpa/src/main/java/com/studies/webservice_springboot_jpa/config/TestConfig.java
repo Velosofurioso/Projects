@@ -1,5 +1,6 @@
 package com.studies.webservice_springboot_jpa.config;
 
+import java.time.Instant;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.studies.webservice_springboot_jpa.entities.Order;
 import com.studies.webservice_springboot_jpa.entities.User;
+import com.studies.webservice_springboot_jpa.repositories.OrderRepository;
 import com.studies.webservice_springboot_jpa.repositories.UserRepository;
 
 @Configuration
@@ -17,6 +20,9 @@ public class TestConfig implements CommandLineRunner{
 	@Autowired
 	private UserRepository userRepo;
 
+	@Autowired
+	private OrderRepository orderRepo;
+
 	@Override
 	public void run(String... args) throws Exception {
 		
@@ -25,6 +31,12 @@ public class TestConfig implements CommandLineRunner{
 		User user2 = new User(null, "João", "joao@gmail.com", "(11)94975-16324", "963852");
 		
 		userRepo.saveAll(Arrays.asList(user1,user2,user3));
+		
+		Order order1 = new Order(null, Instant.now(), user1);
+		Order order2 = new Order(null, Instant.now(), user2);
+		Order order3 = new Order(null, Instant.now(), user2);
+		
+		orderRepo.saveAll(Arrays.asList(order1, order2, order3));
 		
 	}
 
