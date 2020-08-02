@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">App_Festa_Fim_Ano</string>
+    <string name="sim_no_not_confirmado">SIM/NÃO/Não Confirmado</string>
+    <string name="dias_restantes_para_o_fim_do_ano">Dias restantes para o fim do ano</string>
+    <string name="voc_vai_participar">Você vai participar?</string>
+    <string name="dias">dias</string>
+    <string name="nao_confimardo">Não Confirmado</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+</resources>
