@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gorjeta_img" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/digite_um_valor" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:id="@+id/editValor" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:layout_marginStart="32dp"
+            android:textSize="22sp"
+            android:id="@+id/textPorcentangem"
+            />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="30dp"
+            android:max="100"
+            android:min="0"
+            android:id="@+id/seekBarGorjeta"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Gorjeta"
+            android:layout_marginStart="32dp"
+            android:textSize="22sp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="R$ 00,00"
+            android:background="#FFD470"
+            android:textColor="@color/cardview_light_background"
+            android:layout_marginEnd="30dp"
+            android:textSize="22sp"
+            android:id="@+id/textGorjeta"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:layout_marginStart="32dp"
+            android:textSize="22sp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="R$ 00,00"
+            android:background="#FFD470"
+            android:layout_marginEnd="30dp"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="22sp"
+            android:id="@+id/textTotal"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>
