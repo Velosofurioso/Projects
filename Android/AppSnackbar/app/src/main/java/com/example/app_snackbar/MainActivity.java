@@ -22,7 +22,22 @@ public class MainActivity extends AppCompatActivity {
         buttonAbrir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make()
+
+                // Mostra somente a mensagem igual ao Toast
+                //Snackbar.make(view, "Snackbar sem ação(Botão)", Snackbar.LENGTH_LONG).show();
+
+                // Mostra a mensagem com um botão para disparar um evento
+                Snackbar snackbar = Snackbar.make(view, "Snackbar com ação", Snackbar.LENGTH_LONG)
+                        .setAction("Confirmar", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                buttonAbrir.setText("Botão abrir alterado");
+                            }
+
+                        });
+
+                // Altera a cor do botão do Snackbar e o mostra
+                snackbar.setActionTextColor(getResources().getColor(R.color.colorPrimary)).show();
             }
         });
     }
