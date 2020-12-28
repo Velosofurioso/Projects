@@ -39,5 +39,3 @@ A simple App and contains only one technology used
 ![](https://lh3.googleusercontent.com/pw/ACtC-3cEPcZiXg8AbWkBYvpd44VCDnW3vTk5_etmQOzWsNoQMhuU8G9vtW3nU5xnsiJmkhydxu35J6PjN3dovHYHpJyhvNA00QbvCWoejxHOl4Hkbb9vUVt5Ihs43UywS7vHHEE45naxG0eb_2VBKYtWUDpK=w313-h695-no?authuser=0)
 
 ![](https://lh3.googleusercontent.com/pw/ACtC-3fQt5uNFiVNj9CrDMgB_84jLxt5jEYaQnMRFLNY6yrnJNLajjXm5qyidI9WaGsGKJ_Fe3pPosmcs02rcfn8sJf2R3gI8KNbZ8sfrHTXspomNe7NGxyO-4FcAupn26WeATh7SAa5Jtzf3HkbncEcpYzj=w313-h695-no?authuser=0)
-
-![](https://lh3.googleusercontent.com/pw/ACtC-3c8ippqEQKVeoWeMuBQjxao8UOgRJv08juKg7gNuGyQ24V66-ueCnnsI6mLHu3hvEcn0aO_zbMv-ruTIFJXe37YjNlyEgW2tYif2PXMdwNLUF1oYcb_lTeHzduE3uWBjmUBuaB3JOizA1j9RTqkT0Vi=w313-h695-no?authuser=0)
