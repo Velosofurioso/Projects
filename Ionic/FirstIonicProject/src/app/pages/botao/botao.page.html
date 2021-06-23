@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Botões</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h3>Botão Padrão</h3>
+  <ion-button>Nome do Botão</ion-button>
+  <ion-button href="#">Link</ion-button>
+
+  <h3>Botão Com Temas</h3>
+  <ion-button color="primary">Tema primary</ion-button>
+  <ion-button color="secondary">Tema Secondary</ion-button>
+  <ion-button color="tertiary">Tema Tertiary</ion-button>
+  <ion-button color="sucess">Tema Sucess</ion-button>
+  <ion-button color="warning">Tema Warning</ion-button>
+  <ion-button color="danger">Tema Danger</ion-button>
+  <ion-button color="light">Tema Light</ion-button>
+  <ion-button color="medium">Tema Medium</ion-button>
+  <ion-button color="dark">Tema Dark</ion-button>
+
+  <h3>Botão com Expand</h3>
+  <ion-button expand="full">Full Button</ion-button>
+  <ion-button expand="block">Block Button</ion-button>
+
+  <h3>Botão com Round</h3>
+  <ion-button shape="round">Round Button</ion-button>
+
+  <h3>Botão com Fill</h3>
+  <ion-button expand="full" fill="outline">Outline + full</ion-button>
+  <ion-button expand="block" fill="outline">Outline + Block</ion-button>
+  <ion-button shape="round" fill="outline">Outline + Round</ion-button>
+
+  <h3>Botões com Icones</h3>
+  <ion-button>
+    <ion-icon slot="start" name="star"></ion-icon>
+    Left Icon
+  </ion-button>
+  
+  <ion-button>
+    <ion-icon slot="end" name="star"></ion-icon>
+    Right Icon
+  </ion-button>
+
+  <ion-button>
+    <ion-icon slot="icon-only" name="bug"></ion-icon>
+  </ion-button>
+
+  <h3>Botão Tamanhos</h3>
+  <ion-button size="small">Small</ion-button>
+  <ion-button>Default</ion-button>
+  <ion-button size="large">Large</ion-button>
+
+  <h3>Botão com Click</h3>
+  <ion-button expanded="block" color="danger" (click)="backToHome()">Ir para Home</ion-button>
+
+</ion-content>

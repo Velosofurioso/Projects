@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Split Pane</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-split-pane contentId="main">
+  <!--  the side menu  -->
+  <ion-menu contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu 1</ion-title>
+        <ion-title>Menu 2</ion-title>
+        <ion-title>Menu 3</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  </ion-menu>
+
+  <!-- the main content -->
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-split-pane>
+
+<h1>CONTEUDO DA PAGINA</h1>
+
+</ion-content>

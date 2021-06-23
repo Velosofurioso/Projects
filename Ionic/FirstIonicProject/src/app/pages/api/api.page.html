@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Api Externa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="stacked">Informe o CEP: </ion-label>
+    <ion-input type="text" [(ngModel)]="cep"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="consultarCep()">Consultar</ion-button>
+
+  <ion-item *ngIf="result.cep">
+    <ion-label><b>Cep</b>:</ion-label>
+    <p>{{result.cep}}</p>
+  </ion-item>
+
+  <ion-item *ngIf="result.logradouro">
+    <ion-label><b>Logradouro</b>:</ion-label>
+    <p>{{result.logradouro}}</p>
+  </ion-item>
+</ion-content>

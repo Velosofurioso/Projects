@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Card</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--this mode atrr shows IOS patttern for card in android, the inverse is possible to-->
+  <ion-card mode="ios">
+    <ion-img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png"></ion-img>
+    <ion-card-content>
+      <ion-card-title> Rock Show</ion-card-title>
+      <p>This show is total FREE but is not recomended for kids</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Job Vacancies</ion-card-subtitle>
+      <ion-title>Ionic 5</ion-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      We need developers working with the Ionic 4 platform.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="danger">
+    <ion-card-header>
+      <ion-card-subtitle>Sales</ion-card-subtitle>
+      <ion-card-title>Cothes</ion-card-title>
+    </ion-card-header>
+
+    <ion-content>
+      We sell the best clothes
+    </ion-content>  
+  </ion-card>
+
+  <ion-card>
+    <ion-item href="#">
+      <ion-icon name="wifi" slot="start"></ion-icon>
+      <ion-label>Free Wifi</ion-label>
+    </ion-item> 
+    
+    <ion-item href="#">
+      <ion-icon name="wine" slot="start"></ion-icon>
+      <ion-label>Drinks</ion-label>
+    </ion-item> 
+
+    <ion-item class="activated">
+      <ion-icon name="warning" slot="start"></ion-icon>
+      <ion-label>Warning .activated</ion-label>
+    </ion-item> 
+  
+    <ion-item>
+      <ion-icon name="walk" slot="start"></ion-icon>
+      <ion-label>People</ion-label>
+    </ion-item> 
+  </ion-card>
+
+  <ion-card color="danger">
+    <ion-card-header>
+      <ion-card-subtitle>Sales</ion-card-subtitle>
+      <ion-card-title>Cothes</ion-card-title>
+    </ion-card-header>
+
+    <ion-content>
+      We sell the best clothes
+    </ion-content>  
+  </ion-card>
+
+</ion-content>
